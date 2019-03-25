@@ -115,7 +115,7 @@ const commands = {
         echo(`Logging out [${this.name}]...done`, true);
       };
       // eslint-disable-next-line no-underscore-dangle
-      if (this.socket._writableState.ended) rm();
+      if (this.socket._writableState.ended || this.socket._writableState.destroyed) rm();
       else rm(), this.socket[this.socket !== process.stdout ? 'end' : 'write'](`You have been logged out\r\n`);
     },
   ],
@@ -224,10 +224,14 @@ function addUser(name, socket, admin) {
       else echo(stack, data);
     }
   });
-  socket.on('data', stack.dataListener).on('end', _socket => {
+  const logout = () => {
     if (stack.logout) return;
     callCommand('logout', stack);
-  });
+  };
+  socket
+    .on('data', stack.dataListener)
+    .once('end', logout)
+    .once('error', logout);
 }
 
 function processAddUser(name, socket) {
@@ -252,7 +256,7 @@ const server = new net.Server(function connected(socket) {
     }
     return socket.end();
   });
-  socket.on('data', fn);
+  socket.on('data', fn).once('error', () => {});
 });
 
 server.listen(8888, () => {
@@ -260,6 +264,8 @@ server.listen(8888, () => {
   console.log('Waiting for user connection');
   addUser('@root', process.stdout, true);
 });
+
+server.on('error', () => {});
 
 process.once('SIGINT', () => {
   commands.shutdown[1](true);
