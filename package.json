@@ -1,0 +1,44 @@
+{
+  "name": "talk.chat",
+  "version": "0.0.0",
+  "description": "TCP Chat server built on pure NodeJS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "server",
+    "irc",
+    "simple",
+    "featured",
+    "chatserver",
+    "tcp",
+    "bytes",
+    "admin",
+    "group",
+    "block",
+    "talk",
+    "project"
+  ],
+  "author": "Miraculous Owonubi <omiraculous@gmail.com>",
+  "maintainers": [
+    "Miraculous Owonubi <omiraculous@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miraclx/talk.chat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/miraclx/talk.chat/issues"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.4"
+  }
+}
