@@ -1,6 +1,6 @@
 {
   "name": "talk.chat",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Featured TCP Chat server built on pure NodeJS",
   "main": "server.js",
   "scripts": {
