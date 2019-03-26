@@ -155,7 +155,7 @@ const commands = {
   ],
   makeadmin: [
     'Grant administrator permissions to the user (admin only)',
-    function(name = this.name) {
+    function(name) {
       sudo(this, function() {
         const stack = getUserStackFromName(name || this.name);
         if (stack) {
