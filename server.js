@@ -163,7 +163,7 @@ const commands = {
             adminUsers.push(stack),
               echo(
                 `<\x1b[32mbot\x1b[0m> ${
-                  this === stack ? `Authenticacation granted` : `${this.name} just made ${stack.name} an administrator`
+                  this === stack ? `Authentication granted` : `${this.name} just made ${stack.name} an administrator`
                 }`,
               );
           else this.socket.write(`This user is already an admin\r\n`);
