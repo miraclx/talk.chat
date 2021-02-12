@@ -4,6 +4,8 @@
 > Source code for a software talk that didn't hold.
 > Had to finish writing the code 😁
 
+![maintainability](https://img.shields.io/badge/status-unmaintained-red)
+
 ## Installing
 
 From source:
